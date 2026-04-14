@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en" class="lionx-ads-off">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LionX VPN – Ultra Fast & Secure VPN for Android</title>
+<meta name="description" content="LionX VPN offers military-grade encryption, ultra-fast servers in 50+ countries, and unlimited bandwidth. Download free for Android now.">
+<meta property="og:title" content="LionX VPN – Ultra Fast & Secure VPN">
+<meta property="og:description" content="Military-grade encryption. Blazing fast speeds. One tap connect. Download LionX VPN free.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/0a0a1a/00d4ff?text=LionX+VPN">
+<meta name="theme-color" content="#0a0a1a">
+
+<!-- ================================================================
+     AD NETWORK HEAD SCRIPTS — PASTE YOUR SCRIPT TAG HERE
+     ================================================================
+     Monetag (OnClick / Popunder):
+       <script src="//cdn.monetag.com/tag.min.js" data-zone="XXXXXX" async></script>
+
+     Google AdSense:
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+     PropellerAds:
+       <script async src="https://www.profitabledisplay.com/watchnew?zoneid=XXXXXX"></script>
+
+     Media.net:
+       <script src="https://contextual.media.net/dmedianet.js?cid=XXXXXXX" async></script>
+     ================================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --neon:#00d4ff;
+  --neon2:#7c3aed;
+  --neon3:#f0abfc;
+  --bg:#08080f;
+  --bg2:#0d0d1a;
+  --bg3:#111124;
+  --glass:rgba(255,255,255,0.04);
+  --glass-border:rgba(0,212,255,0.15);
+  --text:#e2e8f0;
+  --text2:#94a3b8;
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Exo 2',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+#download{scroll-margin-top:96px;position:relative;z-index:210}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--neon);border-radius:2px}
+
+/* ===== GLOBAL ADS TOGGLE (see LIONX_ADS_TOKEN_RAW / ADS_ENABLED in script) ===== */
+html.lionx-ads-off .ad-slot,
+html.lionx-ads-off .top-ad-bar,
+html.lionx-ads-off #footerCtaBar,
+html.lionx-ads-off #lionx-global-viewport-capture-layer{
+  display:none!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+/* ===== INTRO SCREEN ===== */
+#intro{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  transition:opacity 0.25s ease;
+}
+#intro.hiding{opacity:0;pointer-events:none}
+#intro.done{display:none!important}
+#intro .logo-wrap{animation:logoZoom 0.4s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0}
+#intro .logo-wrap svg{width:120px;height:120px}
+#intro .brand{
+  font-family:'Rajdhani',sans-serif;
+  font-size:3rem;font-weight:700;letter-spacing:4px;
+  background:linear-gradient(135deg,var(--neon),var(--neon2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-top:16px;animation:fadeUp 0.3s ease 0.25s both;
+}
+#intro .tagline{
+  font-size:0.9rem;letter-spacing:6px;text-transform:uppercase;
+  color:var(--text2);margin-top:8px;animation:fadeUp 0.3s ease 0.4s both;
+}
+#intro .bar{
+  width:200px;height:2px;background:var(--glass-border);
+  margin-top:32px;border-radius:2px;overflow:hidden;animation:fadeUp 0.2s ease 0.5s both;
+}
+#intro .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--neon),var(--neon2));border-radius:2px;animation:barLoad 0.7s ease 0.55s forwards}
+@keyframes logoZoom{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes barLoad{from{width:0}to{width:100%}}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:16px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,8,15,0.85);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);transition:background 0.15s ease,border-color 0.15s ease;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo svg{width:36px;height:36px}
+.nav-logo span{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;
+  background:linear-gradient(135deg,var(--neon),var(--neon2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;
+  letter-spacing:0.5px;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--neon);transition:width 0.15s}
+.nav-links a:hover{color:var(--neon)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:8px 20px;border-radius:50px;
+  background:linear-gradient(135deg,var(--neon),var(--neon2));
+  color:#000!important;font-weight:700!important;font-size:0.85rem!important;
+  text-decoration:none;transition:transform 0.2s,box-shadow 0.2s!important;
+}
+.nav-cta:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(0,212,255,0.4)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--neon);border-radius:2px;transition:transform 0.15s,opacity 0.15s}
+.nav-mobile{display:none;position:fixed;top:70px;left:0;right:0;
+  background:rgba(8,8,15,0.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);padding:20px 5%;z-index:99;
+  flex-direction:column;gap:16px}
+.nav-mobile.open{display:flex}
+.nav-mobile a{color:var(--text2);text-decoration:none;font-size:1rem;padding:8px 0;border-bottom:1px solid var(--glass-border)}
+
+/* ===== TOP BANNER AD ===== */
+.top-ad-bar{
+  margin-top:70px;
+  background:linear-gradient(90deg,rgba(0,212,255,0.06),rgba(124,58,237,0.06));
+  border-bottom:1px solid var(--glass-border);
+  padding:10px 5%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:56px;overflow:hidden;text-align:center;
+}
+/* ===== LIVE BAR ===== */
+.live-bar{
+  background:linear-gradient(90deg,rgba(0,212,255,0.06),rgba(124,58,237,0.04),rgba(0,212,255,0.06));
+  border-bottom:1px solid var(--glass-border);
+  padding:2px 5%;display:flex;align-items:center;justify-content:center;
+  gap:0;overflow:visible;min-height:44px;
+}
+.live-stat{
+  display:flex;align-items:center;gap:7px;
+  font-size:0.78rem;color:var(--text2);
+  padding:8px 20px;min-height:40px;white-space:nowrap;line-height:1.25;
+}
+.live-stat+.live-stat{border-left:1px solid var(--glass-border)}
+.live-stat strong{color:var(--text);font-weight:700}
+.live-dot{
+  width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;
+  box-shadow:0 0 6px rgba(34,197,94,0.8);
+  animation:pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:1}
+.container{max-width:1200px;margin:0 auto;padding:0 5%}
+
+/* ===== HERO ===== */
+#hero{
+  min-height:100svh;display:flex;align-items:center;
+  padding:100px 0 60px;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,212,255,0.08) 0%,transparent 60%),
+             radial-gradient(ellipse 50% 50% at 80% 50%,rgba(124,58,237,0.08) 0%,transparent 60%);
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);
+  padding:6px 16px;border-radius:50px;font-size:0.8rem;color:var(--neon);
+  margin-bottom:24px;animation:fadeUp 0.3s ease both;
+}
+.hero-badge svg{width:14px;height:14px}
+h1{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(1.85rem,5vw,4rem);font-weight:700;line-height:1.1;
+  letter-spacing:-0.5px;animation:fadeUp 0.3s ease 0.05s both;
+}
+h1 .grad{
+  background:linear-gradient(135deg,var(--neon) 0%,var(--neon2) 50%,var(--neon3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{color:var(--text2);font-size:1.05rem;margin-top:16px;max-width:480px;animation:fadeUp 0.3s ease 0.1s both}
+.urgency-text{
+  font-size:0.82rem;color:#f59e0b;margin-top:10px;
+  animation:fadeUp 0.3s ease 0.125s both;
+  display:flex;align-items:center;gap:6px;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;animation:fadeUp 0.3s ease 0.15s both}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:50px;
+  background:linear-gradient(135deg,var(--neon),var(--neon2));
+  color:#000;font-weight:700;font-size:0.95rem;text-decoration:none;
+  border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;
+  font-family:'Exo 2',sans-serif;
+}
+.btn-primary:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 30px rgba(0,212,255,0.4)}
+.btn-primary.big{font-size:1.05rem;padding:16px 36px;box-shadow:0 0 20px rgba(0,212,255,0.25)}
+.btn-primary.big:hover{box-shadow:0 0 40px rgba(0,212,255,0.5)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:50px;
+  background:var(--glass);border:1px solid var(--glass-border);
+  color:var(--text);font-weight:600;font-size:0.95rem;text-decoration:none;
+  cursor:pointer;transition:all 0.2s;font-family:'Exo 2',sans-serif;
+}
+.btn-ghost:hover{border-color:var(--neon);color:var(--neon);background:rgba(0,212,255,0.05)}
+.hero-stats{display:flex;gap:32px;margin-top:36px;animation:fadeUp 0.3s ease 0.2s both}
+.hero-stat .num{font-family:'Rajdhani',sans-serif;font-size:1.8rem;font-weight:700;color:var(--neon)}
+.hero-stat .label{font-size:0.78rem;color:var(--text2);margin-top:2px}
+
+/* HERO VISUAL */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;animation:fadeUp 0.4s ease 0.15s both}
+.globe-container{width:340px;height:340px;position:relative}
+.globe-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(0,212,255,0.15);animation:spin linear infinite}
+.globe-ring:nth-child(1){animation-duration:12s}
+.globe-ring:nth-child(2){inset:20px;border-color:rgba(124,58,237,0.2);animation-duration:18s;animation-direction:reverse}
+.globe-ring:nth-child(3){inset:40px;border-color:rgba(240,171,252,0.15);animation-duration:24s}
+@keyframes spin{from{transform:rotateY(0deg) rotateX(15deg)}to{transform:rotateY(360deg) rotateX(15deg)}}
+.globe-core{
+  position:absolute;inset:60px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,rgba(0,212,255,0.3),rgba(124,58,237,0.2) 50%,rgba(8,8,15,0.9));
+  border:1px solid rgba(0,212,255,0.3);display:flex;align-items:center;justify-content:center;
+}
+.globe-core svg{width:80px;height:80px;opacity:0.8}
+.globe-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:orbitDot linear infinite}
+.globe-dot:nth-child(4){animation-duration:6s;top:50%;left:0;transform-origin:170px 0}
+.globe-dot:nth-child(5){animation-duration:9s;top:0;left:50%;background:var(--neon2);box-shadow:0 0 10px var(--neon2);animation-direction:reverse}
+.globe-dot:nth-child(6){animation-duration:13s;bottom:30px;right:0;background:var(--neon3);box-shadow:0 0 10px var(--neon3)}
+@keyframes orbitDot{from{transform:rotate(0deg) translateX(160px)}to{transform:rotate(360deg) translateX(160px)}}
+.ping-card{position:absolute;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(10px);border-radius:12px;padding:10px 16px;font-size:0.8rem;white-space:nowrap}
+.ping-card.top{top:-10px;right:-20px}
+.ping-card.bottom{bottom:20px;left:-30px}
+.ping-card .val{font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;color:var(--neon)}
+.ping-card .sub{color:var(--text2);font-size:0.72rem}
+.ping-card .tag{font-size:0.7rem;background:rgba(34,197,94,0.15);color:#22c55e;padding:2px 8px;border-radius:4px;margin-top:4px;display:inline-block}
+
+/* ===== GLASS CARDS ===== */
+.glass-card{
+  background:var(--glass);border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);border-radius:var(--r);
+  transition:border-color 0.15s,transform 0.15s,box-shadow 0.15s;
+}
+.glass-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3),0 0 30px rgba(0,212,255,0.05)}
+
+/* ===== SECTION HEADERS ===== */
+.section-head{text-align:center;margin-bottom:60px}
+.section-head .eyebrow{display:inline-block;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--neon);margin-bottom:12px}
+.section-head h2{font-family:'Rajdhani',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.2}
+.section-head p{color:var(--text2);margin-top:12px;max-width:540px;margin-left:auto;margin-right:auto}
+
+/* ===== AD SLOTS (three-tier: top / mid / bottom) ===== */
+.ad-slot{
+  background:rgba(255,255,255,0.02);
+  border:1px dashed rgba(255,255,255,0.08);
+  border-radius:12px;padding:16px;text-align:center;
+  color:var(--text2);font-size:0.8rem;margin:32px 0;
+  min-height:60px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;overflow:hidden;
+}
+.ad-slot--top{margin-bottom:0;border-radius:0;border-left:none;border-right:none}
+.ad-slot--bottom{margin-bottom:0}
+.ad-slot .ad-slot-label{display:block;font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:4px}
+.ad-slot.ad-slot--placeholder-hidden .ad-slot-label{display:none!important}
+.ad-slot.ad-slot--placeholder-hidden .ad-slot-filler{display:none!important}
+.ad-slot.ad-slot--placeholder-hidden{min-height:0;padding:0;margin:0;border:none;background:transparent}
+.ad-slot:has(ins)>div,.ad-slot:has(script~div)>div{display:none}
+.top-ad-bar.ad-slot--top{padding:10px 5%;min-height:56px}
+
+/* ===== IP BANNER ===== */
+#ipBanner{
+  background:linear-gradient(90deg,rgba(239,68,68,0.12),rgba(239,68,68,0.06));
+  border:1px solid rgba(239,68,68,0.25);border-radius:12px;
+  padding:16px 20px;margin:20px auto;max-width:1200px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+#ipBanner.protected{background:linear-gradient(90deg,rgba(34,197,94,0.1),rgba(34,197,94,0.04));border-color:rgba(34,197,94,0.25)}
+.ip-banner-left{display:flex;align-items:center;gap:14px}
+.ip-status-dot{width:12px;height:12px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px rgba(239,68,68,0.6);animation:pulse 1.5s infinite;flex-shrink:0}
+#ipBanner.protected .ip-status-dot{background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.6)}
+.ip-banner-text strong{display:block;font-size:0.95rem}
+.ip-banner-text span{font-size:0.8rem;color:var(--text2)}
+#ipBanner .ip-val{font-family:'Rajdhani',sans-serif;font-size:1rem;color:#ef4444;font-weight:700;letter-spacing:1px}
+#ipBanner.protected .ip-val{color:#22c55e}
+
+/* ===== STORE ===== */
+#store{padding:80px 0}
+.store-card{max-width:480px;margin:0 auto;background:var(--bg3);border:1px solid var(--glass-border);border-radius:20px;padding:32px;position:relative;overflow:hidden}
+.store-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--neon),var(--neon2))}
+.store-top{display:flex;gap:20px;align-items:center;margin-bottom:24px}
+.store-icon{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--neon),var(--neon2));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.store-icon svg{width:40px;height:40px;fill:#000}
+.store-name{font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700}
+.store-dev{color:var(--text2);font-size:0.85rem;margin-top:4px}
+.stars{display:flex;align-items:center;gap:4px;margin-top:8px}
+.star{color:#facc15;font-size:1rem}
+.rating-num{font-size:0.85rem;color:var(--text2);margin-left:4px}
+.store-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;margin-bottom:24px}
+.store-stat{background:var(--bg2);padding:16px;text-align:center}
+.store-stat .n{font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;color:var(--neon)}
+.store-stat .l{font-size:0.72rem;color:var(--text2);margin-top:4px}
+.store-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.store-tag{background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--neon);font-size:0.75rem;padding:4px 12px;border-radius:50px}
+.progress-bar{margin-bottom:16px}
+.pb-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:0.78rem}
+.pb-row .star-n{width:12px;color:var(--text2)}
+.pb-track{flex:1;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+.pb-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#facc15,#f59e0b)}
+
+/* ===== CAROUSEL ===== */
+#screenshots{padding:80px 0;overflow:hidden}
+.carousel-wrap{position:relative;padding:40px 0}
+.carousel-track{display:flex;gap:24px;align-items:center;justify-content:center;perspective:800px}
+.carousel-slide{flex-shrink:0;width:200px;height:360px;border-radius:20px;overflow:hidden;background:var(--bg3);border:1px solid var(--glass-border);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative}
+.carousel-slide img{width:100%;height:100%;object-fit:cover}
+.carousel-slide.active{width:260px;height:420px;z-index:2;border-color:rgba(0,212,255,0.4);box-shadow:0 0 40px rgba(0,212,255,0.2),0 30px 60px rgba(0,0,0,0.5);transform:translateY(-20px)}
+.carousel-slide.left{transform:rotateY(20deg) translateX(-10px) scale(0.9);opacity:0.7}
+.carousel-slide.right{transform:rotateY(-20deg) translateX(10px) scale(0.9);opacity:0.7}
+.carousel-slide.placeholder{background:linear-gradient(135deg,var(--bg2),var(--bg3));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.carousel-slide.placeholder svg{width:48px;height:48px;opacity:0.3}
+.carousel-slide.placeholder p{font-size:0.75rem;color:var(--text2);text-align:center;padding:0 16px}
+.carousel-nav{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.carousel-nav button{width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:rgba(255,255,255,0.15);transition:width 0.15s,background 0.15s,border-radius 0.15s}
+.carousel-nav button.active{width:30px;border-radius:5px;background:var(--neon)}
+.carousel-arrows{display:flex;justify-content:center;gap:16px;margin-top:16px}
+.arrow-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(10px);cursor:pointer;color:var(--text);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all 0.2s}
+.arrow-btn:hover{border-color:var(--neon);color:var(--neon)}
+
+/* ===== FEATURES ===== */
+#features{padding:80px 0}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.feature-card{padding:28px;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--neon),var(--neon2));transform:scaleX(0);transform-origin:left;transition:transform 0.2s}
+.feature-card:hover::before{transform:scaleX(1)}
+.feat-icon{width:52px;height:52px;border-radius:12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.4rem;transition:background 0.15s,box-shadow 0.15s,border-color 0.15s}
+.feature-card:hover .feat-icon{background:rgba(0,212,255,0.15);box-shadow:0 0 20px rgba(0,212,255,0.2)}
+.feat-title{font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.feat-desc{color:var(--text2);font-size:0.88rem;line-height:1.6}
+
+/* ===== SERVERS ===== */
+#servers{padding:80px 0}
+.servers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.server-card{padding:20px;text-align:center;cursor:pointer;position:relative;overflow:hidden}
+.server-card::after{content:'';position:absolute;inset:0;border-radius:var(--r);background:linear-gradient(135deg,rgba(0,212,255,0.05),rgba(124,58,237,0.05));opacity:0;transition:opacity 0.15s}
+.server-card:hover::after{opacity:1}
+.server-flag{font-size:2.5rem;margin-bottom:8px;display:block}
+.server-name{font-weight:600;font-size:0.9rem;margin-bottom:4px}
+.server-ping{font-size:0.75rem;color:#22c55e}
+.server-bar{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;margin-top:10px;overflow:hidden}
+.server-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--neon),var(--neon2));animation:serverLoad 1s ease forwards}
+@keyframes serverLoad{from{width:0}to{width:var(--w)}}
+.server-card.connecting .server-ping{color:var(--neon)!important;animation:blinkText 0.5s infinite}
+.server-card.connected{border-color:rgba(0,212,255,0.5)!important;box-shadow:0 0 20px rgba(0,212,255,0.15)!important}
+.server-card.connected .server-ping{color:#22c55e!important}
+.country-card{cursor:pointer}
+@keyframes blinkText{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* ===== SPEED COMPARISON ===== */
+#speed{padding:80px 0}
+.speed-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.speed-card{padding:32px}
+.speed-label{font-size:0.85rem;color:var(--text2);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.speed-label .badge{padding:4px 12px;border-radius:50px;font-size:0.75rem;font-weight:600}
+.badge-bad{background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.2)}
+.badge-good{background:rgba(34,197,94,0.15);color:#22c55e;border:1px solid rgba(34,197,94,0.2)}
+.speed-metric{margin-bottom:20px}
+.speed-metric-label{font-size:0.8rem;color:var(--text2);margin-bottom:8px;display:flex;justify-content:space-between}
+.speed-track{height:12px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden}
+.speed-fill{height:100%;border-radius:6px;transition:width 0.75s cubic-bezier(0.4,0,0.2,1)}
+.fill-bad{background:linear-gradient(90deg,#7f1d1d,#ef4444)}
+.fill-good{background:linear-gradient(90deg,var(--neon),var(--neon2))}
+.speed-num{font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;margin-top:16px}
+.speed-unit{font-size:0.9rem;color:var(--text2)}
+
+/* ===== COUNTERS ===== */
+#counters{padding:60px 0}
+.counters-bg{background:linear-gradient(135deg,rgba(0,212,255,0.05),rgba(124,58,237,0.05));border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+.counters-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;padding:60px 0}
+.counter-item{text-align:center}
+.counter-num{font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.counter-label{color:var(--text2);font-size:0.85rem;margin-top:4px}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials{padding:80px 0}
+.testimonials-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.testimonial-card{padding:28px}
+.t-text{color:var(--text2);font-size:0.9rem;line-height:1.7;margin-bottom:20px;position:relative;padding-top:16px}
+.t-text::before{content:'"';position:absolute;top:-10px;left:-4px;font-size:3rem;color:var(--neon);opacity:0.3;font-family:Georgia,serif;line-height:1}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--neon),var(--neon2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;color:#000}
+.t-name{font-weight:600;font-size:0.9rem}
+.t-loc{font-size:0.75rem;color:var(--text2)}
+.t-stars{color:#facc15;font-size:0.8rem;margin-top:2px}
+
+/* ===== SPEED TEST ===== */
+#speedtest{padding:80px 0;background:var(--bg2)}
+.speedtest-wrap{background:var(--bg3);border:1px solid var(--glass-border);border-radius:20px;overflow:hidden;padding:32px}
+.speedtest-inner{background:var(--bg);border:1px solid var(--glass-border);border-radius:12px;height:300px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;cursor:pointer;transition:border-color 0.15s,box-shadow 0.15s}
+.speedtest-inner:hover{border-color:rgba(0,212,255,0.3)}
+.st-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--neon),var(--neon2));display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.st-note{font-size:0.82rem;color:var(--text2);text-align:center;max-width:300px}
+.st-results{display:flex;gap:32px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.st-result-item{text-align:center}
+.st-result-item .n{font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;color:var(--neon)}
+.st-result-item .l{font-size:0.78rem;color:var(--text2)}
+@keyframes spin2{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ===== DOWNLOAD ===== */
+#download{padding:80px 0}
+.download-hero{
+  text-align:center;position:relative;padding:60px clamp(20px,5vw,40px);
+  background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(124,58,237,0.06));
+  border:1px solid var(--glass-border);border-radius:24px;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;gap:8px;box-sizing:border-box;width:100%;
+}
+.download-hero .section-head{width:100%;max-width:640px;margin-left:auto;margin-right:auto}
+.download-hero-actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;width:100%;max-width:100%;position:relative;z-index:1}
+.download-hero-meta{margin-top:24px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;width:100%}
+.download-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(0,212,255,0.08),transparent 60%);
+  pointer-events:none;
+}
+
+/* ===== WHATSAPP BTN ===== */
+.wa-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:50px;
+  background:#25d366;color:#fff;font-weight:700;font-size:0.9rem;
+  text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;font-family:'Exo 2',sans-serif;
+}
+.wa-btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(37,211,102,0.4)}
+
+/* ===== FAQ ===== */
+#faq{padding:80px 0;background:var(--bg2)}
+.faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--text);padding:20px 24px;text-align:left;font-family:'Exo 2',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color 0.2s}
+.faq-q:hover{color:var(--neon)}
+.faq-q .chevron{transition:transform 0.15s;font-size:0.8rem;flex-shrink:0;color:var(--text2)}
+.faq-q.open .chevron{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.2s ease,padding 0.15s;color:var(--text2);font-size:0.88rem;line-height:1.7}
+.faq-a.open{max-height:200px;padding:0 24px 20px}
+
+/* ===== FOOTER ===== */
+footer{background:var(--bg2);border-top:1px solid var(--glass-border);padding:60px 5% 80px;margin-top:40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.footer-desc{color:var(--text2);font-size:0.85rem;line-height:1.6;max-width:280px}
+.footer-h{font-weight:700;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;color:var(--text)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:var(--text2);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.footer-links a:hover{color:var(--neon)}
+.footer-bottom{border-top:1px solid var(--glass-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{color:var(--text2);font-size:0.8rem}
+
+/* ===== STICKY FOOTER CTA (closeable) ===== */
+.footer-cta-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:150;
+  background:rgba(8,8,15,0.97);backdrop-filter:blur(12px);
+  border-top:1px solid var(--glass-border);
+  padding:10px 5%;display:flex;align-items:center;justify-content:flex-start;gap:12px;flex-wrap:wrap;
+}
+.footer-cta-bar .ad-text{flex:1;min-width:140px}
+.footer-cta-bar .close-cta{margin-left:auto}
+.footer-cta-bar .ad-text{font-size:0.82rem;color:var(--text2)}
+.footer-cta-bar .ad-text strong{color:var(--neon)}
+.footer-cta-bar .close-cta{background:none;border:none;color:var(--text2);cursor:pointer;font-size:1.1rem;flex-shrink:0;transition:color 0.2s}
+.footer-cta-bar .close-cta:hover{color:var(--neon)}
+
+/* ===== MODALS ===== */
+.modal-overlay{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.active{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--glass-border);border-radius:24px;padding:40px;max-width:480px;width:100%;text-align:center;position:relative;animation:modalIn 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+@keyframes modalIn{from{opacity:0;transform:scale(0.8) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-box h3{font-family:'Rajdhani',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:8px}
+.modal-box p{color:var(--text2);font-size:0.9rem;margin-bottom:24px}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.06);border:1px solid var(--glass-border);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all 0.2s}
+.modal-close:hover{color:var(--neon);border-color:var(--neon)}
+
+/* Download link button */
+.btn-download-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 32px;border-radius:50px;
+  background:linear-gradient(135deg,var(--neon),var(--neon2));
+  color:#000;font-weight:700;font-size:1rem;text-decoration:none;
+  border:none;cursor:pointer;transition:all 0.2s;font-family:'Exo 2',sans-serif;width:100%;
+  box-shadow:0 0 20px rgba(0,212,255,0.3);animation:pulse-btn 0.75s ease-in-out infinite;
+  -webkit-appearance:none;appearance:none;box-sizing:border-box;
+}
+.btn-download-link:disabled{opacity:0.65;cursor:wait;pointer-events:none}
+.btn-download-link:hover{opacity:0.92;transform:scale(1.02)}
+@keyframes pulse-btn{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.4)}50%{box-shadow:0 0 0 15px rgba(0,212,255,0)}}
+
+/* ===== SCROLL ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.3s ease,transform 0.3s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:9998;background:linear-gradient(90deg,var(--neon),var(--neon2),var(--neon3));box-shadow:0 0 8px rgba(0,212,255,0.5)}
+
+/* ===== SERVER FLAG IMAGE ===== */
+.server-flag-img{
+  width:38px;height:26px;border-radius:4px;object-fit:cover;
+  display:block;margin:0 auto 8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  /* Hero */
+  #hero{padding:76px 0 36px;min-height:auto;align-items:flex-start}
+  .hero-grid{grid-template-columns:1fr;gap:20px;text-align:center}
+  .hero-btns{justify-content:center}
+  .hero-stats{justify-content:center;gap:16px;flex-wrap:wrap}
+  .hero-visual{display:none}
+  .hero-sub{font-size:0.9rem;margin-left:auto;margin-right:auto}
+  .hero-badge{font-size:0.7rem;padding:5px 12px;margin-bottom:12px}
+  .urgency-text{justify-content:center}
+  .btn-primary.big{font-size:0.95rem;padding:14px 22px;width:100%;justify-content:center}
+
+  /* Live bar — stack on mobile */
+  .live-bar{height:auto;flex-direction:column;gap:0;padding:2px 0;overflow:visible}
+  .live-stat{width:100%;padding:10px 4%;min-height:unset;border-left:none!important;border-bottom:1px solid var(--glass-border);justify-content:center}
+  .live-stat:last-child{border-bottom:none}
+
+  /* Nav */
+  .nav-links{display:none}
+  .hamburger{display:flex}
+
+  /* IP Banner */
+  #ipBanner{flex-direction:column;gap:10px;align-items:flex-start}
+  #ipBanner>div:last-child{width:100%;flex-direction:column;align-items:stretch}
+  #ipBanner .btn-primary{width:100%;justify-content:center;text-align:center}
+
+  /* Servers */
+  .servers-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .server-card{padding:14px 8px}
+  .server-flag-img{width:32px;height:22px}
+
+  /* Speed */
+  .speed-grid{grid-template-columns:1fr}
+
+  /* Download section */
+  .download-hero{padding:32px 16px}
+  .download-hero-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .download-hero-actions .btn-primary,
+  .download-hero-actions .wa-btn{width:100%;justify-content:center;font-size:1rem;padding:14px 20px}
+  .download-hero-meta{gap:8px;justify-content:center}
+  .download-hero-meta span{font-size:0.75rem}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  footer{padding:40px 5% 100px}
+
+  /* Carousel */
+  .carousel-slide.left,.carousel-slide.right{display:none}
+  .carousel-slide.active{width:220px;height:380px}
+
+  /* Counters */
+  .counters-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* Sections */
+  .container{padding:0 4%}
+  .section-head{margin-bottom:32px}
+  .features-grid{grid-template-columns:1fr}
+  .testimonials-track{grid-template-columns:1fr!important}
+
+  /* Sticky bar */
+  .footer-cta-bar{padding:8px 4%;gap:8px}
+  .footer-cta-bar .ad-text{font-size:0.75rem}
+
+  /* Store card */
+  .store-card{padding:20px}
+}
+
+@media(max-width:400px){
+  #hero{padding:68px 0 28px}
+  h1{font-size:1.65rem}
+  .servers-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:12px}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- SCROLL PROGRESS -->
+<div id="scrollProgress"></div>
+
+<!-- INTRO SCREEN -->
+<div id="intro">
+  <div class="logo-wrap">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+      <circle cx="60" cy="60" r="56" fill="url(#lg1)" opacity="0.15"/>
+      <circle cx="60" cy="60" r="56" stroke="url(#lg1)" stroke-width="2"/>
+      <path d="M60 20 L85 32 L85 60 C85 75 72 86 60 92 C48 86 35 75 35 60 L35 32 Z" fill="url(#lg1)" opacity="0.4"/>
+      <path d="M60 20 L85 32 L85 60 C85 75 72 86 60 92 C48 86 35 75 35 60 L35 32 Z" stroke="url(#lg1)" stroke-width="1.5" fill="none"/>
+      <text x="46" y="70" font-family="Rajdhani,sans-serif" font-weight="700" font-size="30" fill="url(#lg1)">LX</text>
+    </svg>
+  </div>
+  <div class="brand">LIONX VPN</div>
+  <div class="tagline">Secure · Fast · Unlimited</div>
+  <div class="bar"><div class="bar-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <svg viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="17" stroke="url(#nlg)" stroke-width="1.5"/>
+      <defs><linearGradient id="nlg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00d4ff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+      <text x="5" y="24" font-family="Rajdhani" font-weight="700" font-size="16" fill="url(#nlg)">LX</text>
+    </svg>
+    <span>LionX VPN</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#servers">Servers</a>
+    <a href="#store">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#download" class="nav-cta">Download Free</a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="#features">Features</a>
+  <a href="#servers">Servers</a>
+  <a href="#store">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="#download">Download Free</a>
+</div>
+
+<div class="top-ad-bar ad-slot ad-slot--top" id="adSlotTop" data-ad-tier="top">
+  <span class="ad-slot-label">Top banner</span>
+  <div class="ad-slot-filler" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;width:100%">
+    <span style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;border:1px solid var(--glass-border)">AD</span>
+    <span style="font-size:0.82rem;color:var(--text2)">🔥 <strong style="color:var(--neon)">Limited Offer</strong> — LionX VPN Premium Features, Now Completely <strong style="color:var(--neon)">FREE</strong></span>
+  </div>
+</div>
+
+<!-- LIVE ACTIVITY -->
+<div class="live-bar">
+  <div class="live-stat"><div class="live-dot"></div><span id="liveDL">🔥 <strong>128</strong> users downloading right now</span></div>
+  <div class="live-stat"><span id="liveMin">⚡ +<strong>25</strong> downloads in last minute</span></div>
+  <div class="live-stat"><span>🌍 <strong>50+</strong> servers online</span></div>
+</div>
+
+<!-- IP PROTECTION BANNER -->
+<div class="container">
+  <div id="ipBanner">
+    <div class="ip-banner-left">
+      <div class="ip-status-dot"></div>
+      <div class="ip-banner-text">
+        <strong>⚠️ Your IP Address is Exposed</strong>
+        <span>Your real location is visible to every website you visit</span>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div class="ip-val" id="ipVal">Detecting...</div>
+      <button class="btn-primary" style="padding:8px 20px;font-size:0.82rem" id="ipProtectBtn">🛡️ Protect Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M7 1L8.5 5H13L9.5 7.5L11 12L7 9.5L3 12L4.5 7.5L1 5H5.5Z" fill="#00d4ff"/></svg>
+          #1 Rated Free VPN for Android 2025
+        </div>
+        <h1>Internet Freedom<br>With <span class="grad">Military-Grade</span><br>Security</h1>
+        <p class="hero-sub">Blazing fast servers. Zero logs. Unlimited bandwidth. Connect to 50+ countries with one tap — completely free.</p>
+        <p class="urgency-text">⚠️ Limited free access today — don't miss out</p>
+        <div class="hero-btns">
+          <button class="btn-primary big" id="heroDlBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99z"/></svg>
+            ⚡ Download &amp; Boost Speed Now
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num" data-target="10">0</div><div class="label">Million+ Users</div></div>
+          <div class="hero-stat"><div class="num" data-target="50">0</div><div class="label">Countries</div></div>
+          <div class="hero-stat"><div class="num" data-target="99">0</div><div class="label">% Uptime</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="globe-container">
+          <div class="globe-ring"></div>
+          <div class="globe-ring"></div>
+          <div class="globe-ring"></div>
+          <div class="globe-core">
+            <svg viewBox="0 0 80 80" fill="none">
+              <path d="M40 10 C25 10 13 22 13 40 C13 58 25 70 40 70 C55 70 67 58 67 40 C67 22 55 10 40 10Z" stroke="#00d4ff" stroke-width="1.5"/>
+              <path d="M13 40 H67M40 10 C33 20 30 30 30 40 C30 50 33 60 40 70M40 10 C47 20 50 30 50 40 C50 50 47 60 40 70" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="globe-dot"></div>
+          <div class="globe-dot"></div>
+          <div class="globe-dot"></div>
+          <div class="ping-card top"><div class="val">8ms</div><div class="sub">Singapore</div><div class="tag">● Connected</div></div>
+          <div class="ping-card bottom"><div class="val">256-bit</div><div class="sub">AES Encryption</div><div class="tag">● Secured</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<https://www.google.com/>
+<div class="container">
+  <div class="ad-slot ad-slot--mid" id="adSlotMid" data-ad-tier="mid">
+    <span class="ad-slot-label">Advertisement</span>
+    <!-- PASTE AD CODE BELOW (Monetag / AdSense / PropellerAds) -->
+    <div class="ad-slot-filler" style="min-height:90px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.12);font-size:0.8rem;flex-direction:column;gap:4px">
+      <span>728×90 Leaderboard</span>
+      <span style="font-size:0.7rem">Paste ad code above</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PLAY STORE SECTION ===== -->
+<section id="store" style="padding:80px 0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">App Rating</div>
+      <h2>Users Love LionX VPN</h2>
+      <p>Join millions who trust LionX for secure, fast browsing every day</p>
+    </div>
+    <div class="store-card reveal">
+      <div class="store-top">
+        <div class="store-icon">
+          <svg viewBox="0 0 40 40"><path d="M20 5L23 15H35L25 22L28 32L20 26L12 32L15 22L5 15H17Z" fill="#000"/></svg>
+        </div>
+        <div>
+          <div class="store-name">LionX VPN</div>
+          <div class="store-dev">LionX Technologies</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star">★</span><span class="star" style="color:#4b5563">★</span>
+            <span class="rating-num">4.8 · 52,400 ratings</span>
+          </div>
+        </div>
+      </div>
+      <div class="store-stats">
+        <div class="store-stat"><div class="n">10M+</div><div class="l">Downloads</div></div>
+        <div class="store-stat"><div class="n">4.8★</div><div class="l">Rating</div></div>
+        <div class="store-stat"><div class="n">Free</div><div class="l">Price</div></div>
+      </div>
+      <div class="store-tags">
+        <span class="store-tag">VPN</span>
+        <span class="store-tag">Security</span>
+        <span class="store-tag">Privacy</span>
+        <span class="store-tag">Free</span>
+        <span class="store-tag">Android</span>
+      </div>
+      <div class="progress-bar">
+        <div class="pb-row"><span class="star-n">5</span>★<div class="pb-track"><div class="pb-fill" style="width:78%"></div></div><span style="color:var(--text2);font-size:0.75rem">78%</span></div>
+        <div class="pb-row"><span class="star-n">4</span>★<div class="pb-track"><div class="pb-fill" style="width:14%"></div></div><span style="color:var(--text2);font-size:0.75rem">14%</span></div>
+        <div class="pb-row"><span class="star-n">3</span>★<div class="pb-track"><div class="pb-fill" style="width:5%"></div></div><span style="color:var(--text2);font-size:0.75rem">5%</span></div>
+        <div class="pb-row"><span class="star-n">2</span>★<div class="pb-track"><div class="pb-fill" style="width:2%"></div></div><span style="color:var(--text2);font-size:0.75rem">2%</span></div>
+        <div class="pb-row"><span class="star-n">1</span>★<div class="pb-track"><div class="pb-fill" style="width:1%"></div></div><span style="color:var(--text2);font-size:0.75rem">1%</span></div>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center" id="storeInstallBtn">
+        📥 Install Free – 12.4 MB
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCREENSHOTS ===== -->
+<section id="screenshots">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">App Preview</div>
+      <h2>See LionX in Action</h2>
+      <p>Clean, intuitive interface designed for ultimate ease of use</p>
+    </div>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide left" data-idx="0">
+          <img src="assets/Secondones.jpeg" alt="LionX VPN server list screenshot" loading="lazy">
+        </div>
+        <div class="carousel-slide active" data-idx="1">
+          <img src="assets/Homepage.jpeg" alt="LionX VPN home screen screenshot" loading="lazy">
+        </div>
+        <div class="carousel-slide right" data-idx="2">
+          <img src="assets/screen-3.jpeg" alt="LionX VPN app screenshot" loading="lazy">
+        </div>
+      </div>
+      <div class="carousel-arrows">
+        <button class="arrow-btn" id="prevBtn">&#8592;</button>
+        <button class="arrow-btn" id="nextBtn">&#8594;</button>
+      </div>
+      <div class="carousel-nav" id="carouselNav">
+        <button></button><button class="active"></button><button></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features" style="padding:80px 0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why LionX</div>
+      <h2>Everything You Need in a VPN</h2>
+      <p>Enterprise-grade security with consumer-friendly simplicity</p>
+    </div>
+    <div class="features-grid">
+      <div class="glass-card feature-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-title">Ultra Fast Servers</div>
+        <div class="feat-desc">10 Gbps servers with smart load balancing. Stream, game, and browse at maximum speeds without throttling.</div>
+      </div>
+      <div class="glass-card feature-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="feat-icon">🔒</div>
+        <div class="feat-title">Military-Grade Encryption</div>
+        <div class="feat-desc">AES-256 encryption with WireGuard protocol. Your data is completely unreadable to anyone — even us.</div>
+      </div>
+      <div class="glass-card feature-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="feat-icon">♾️</div>
+        <div class="feat-title">Unlimited Bandwidth</div>
+        <div class="feat-desc">No data caps. No speed throttling. No fair-use policies. Use as much as you want, whenever you want.</div>
+      </div>
+      <div class="glass-card feature-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="feat-icon">👆</div>
+        <div class="feat-title">One-Tap Connect</div>
+        <div class="feat-desc">Connect to the fastest available server in one tap. No configuration, no technical knowledge required.</div>
+      </div>
+      <div class="glass-card feature-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="feat-icon">🚫</div>
+        <div class="feat-title">Strict No-Logs Policy</div>
+        <div class="feat-desc">We never store, sell, or share your data. Verified by independent auditors. Your privacy is guaranteed.</div>
+      </div>
+      <div class="glass-card feature-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="feat-icon">🌐</div>
+        <div class="feat-title">50+ Countries</div>
+        <div class="feat-desc">Access content from anywhere. Servers in 50+ countries ensure you always find a fast, nearby server.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVERS ===== -->
+<section id="servers" style="padding:80px 0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Server Network</div>
+      <h2>Global Server Coverage</h2>
+      <p>Premium locations for maximum speed and reliability</p>
+    </div>
+    <div class="servers-grid">
+      <div class="glass-card server-card country-card reveal" data-server="United States" data-ping="12ms"><img class="server-flag-img" src="https://flagcdn.com/w40/us.webp" alt="USA" loading="lazy"><div class="server-name">United States</div><div class="server-ping">● 12ms · 10 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:92%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="United Kingdom" data-ping="18ms"><img class="server-flag-img" src="https://flagcdn.com/w40/gb.webp" alt="UK" loading="lazy"><div class="server-name">United Kingdom</div><div class="server-ping">● 18ms · 6 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:88%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="Germany" data-ping="22ms"><img class="server-flag-img" src="https://flagcdn.com/w40/de.webp" alt="Germany" loading="lazy"><div class="server-name">Germany</div><div class="server-ping">● 22ms · 5 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:85%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="Canada" data-ping="28ms"><img class="server-flag-img" src="https://flagcdn.com/w40/ca.webp" alt="Canada" loading="lazy"><div class="server-name">Canada</div><div class="server-ping">● 28ms · 4 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:82%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="Singapore" data-ping="8ms"><img class="server-flag-img" src="https://flagcdn.com/w40/sg.webp" alt="Singapore" loading="lazy"><div class="server-name">Singapore</div><div class="server-ping">● 8ms · 8 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:96%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="Japan" data-ping="15ms"><img class="server-flag-img" src="https://flagcdn.com/w40/jp.webp" alt="Japan" loading="lazy"><div class="server-name">Japan</div><div class="server-ping">● 15ms · 5 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:90%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="Australia" data-ping="35ms"><img class="server-flag-img" src="https://flagcdn.com/w40/au.webp" alt="Australia" loading="lazy"><div class="server-name">Australia</div><div class="server-ping">● 35ms · 3 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:79%"></div></div></div>
+      <div class="glass-card server-card country-card reveal" data-server="Netherlands" data-ping="20ms"><img class="server-flag-img" src="https://flagcdn.com/w40/nl.webp" alt="Netherlands" loading="lazy"><div class="server-name">Netherlands</div><div class="server-ping">● 20ms · 4 Servers</div><div class="server-bar"><div class="server-bar-fill" style="--w:87%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPEED COMPARISON ===== -->
+<section id="speed" style="padding:80px 0;background:var(--bg2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Performance</div>
+      <h2>Feel the Difference</h2>
+      <p>Real-world speed comparison with and without LionX VPN</p>
+    </div>
+    <div class="speed-grid">
+      <div class="glass-card speed-card reveal">
+        <div class="speed-label"><span class="badge badge-bad">❌ Without VPN</span><span style="color:var(--text2)">Unprotected</span></div>
+        <div class="speed-metric"><div class="speed-metric-label"><span>Download Speed</span><span style="color:#ef4444">8.2 Mbps</span></div><div class="speed-track"><div class="speed-fill fill-bad" style="width:0" data-w="18%"></div></div></div>
+        <div class="speed-metric"><div class="speed-metric-label"><span>Upload Speed</span><span style="color:#ef4444">2.1 Mbps</span></div><div class="speed-track"><div class="speed-fill fill-bad" style="width:0" data-w="10%"></div></div></div>
+        <div class="speed-metric"><div class="speed-metric-label"><span>Ping</span><span style="color:#ef4444">142ms</span></div><div class="speed-track"><div class="speed-fill fill-bad" style="width:0" data-w="80%"></div></div></div>
+        <div class="speed-num" style="color:#ef4444">8.2 <span class="speed-unit">Mbps</span></div>
+        <div style="color:var(--text2);font-size:0.8rem;margin-top:4px">ISP throttling detected</div>
+      </div>
+      <div class="glass-card speed-card reveal" style="border-color:rgba(0,212,255,0.3)">
+        <div class="speed-label"><span class="badge badge-good">✅ With LionX VPN</span><span style="color:var(--text2)">Protected</span></div>
+        <div class="speed-metric"><div class="speed-metric-label"><span>Download Speed</span><span style="color:#22c55e">487 Mbps</span></div><div class="speed-track"><div class="speed-fill fill-good" style="width:0" data-w="95%"></div></div></div>
+        <div class="speed-metric"><div class="speed-metric-label"><span>Upload Speed</span><span style="color:#22c55e">220 Mbps</span></div><div class="speed-track"><div class="speed-fill fill-good" style="width:0" data-w="85%"></div></div></div>
+        <div class="speed-metric"><div class="speed-metric-label"><span>Ping</span><span style="color:#22c55e">8ms</span></div><div class="speed-track"><div class="speed-fill fill-good" style="width:0" data-w="8%"></div></div></div>
+        <div class="speed-num" style="color:var(--neon)">487 <span class="speed-unit">Mbps</span></div>
+        <div style="color:#22c55e;font-size:0.8rem;margin-top:4px">59x faster than without VPN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COUNTERS ===== -->
+<section id="counters">
+  <div class="counters-bg">
+    <div class="container">
+      <div class="counters-grid">
+        <div class="counter-item reveal"><div class="counter-num" data-target="10000000" data-suffix="M+">0</div><div class="counter-label">Total Downloads</div></div>
+        <div class="counter-item reveal"><div class="counter-num" data-target="50" data-suffix="+">0</div><div class="counter-label">Countries Covered</div></div>
+        <div class="counter-item reveal"><div class="counter-num" data-target="99.9" data-suffix="%">0</div><div class="counter-label">Server Uptime</div></div>
+        <div class="counter-item reveal"><div class="counter-num" data-target="256" data-suffix="-bit">0</div><div class="counter-label">AES Encryption</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials" style="padding:80px 0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Reviews</div>
+      <h2>What Our Users Say</h2>
+      <p>Millions of satisfied users trust LionX every day</p>
+    </div>
+    <div class="testimonials-track">
+      <div class="glass-card testimonial-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="t-text">LionX VPN changed my online life. Speeds are insane, connection is stable, and I've never felt more secure. Best free VPN I've ever used.</div>
+        <div class="t-author"><div class="t-avatar">AK</div><div><div class="t-name">Ahmed Khan</div><div class="t-loc">🇵🇰 Pakistan</div><div class="t-stars">★★★★★</div></div></div>
+      </div>
+      <div class="glass-card testimonial-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="t-text">I tested 20+ VPNs and LionX beats them all. Ultra low ping for gaming, no logs, and the UI is gorgeous. My whole family uses it now.</div>
+        <div class="t-author"><div class="t-avatar" style="background:linear-gradient(135deg,#7c3aed,#f0abfc)">SR</div><div><div class="t-name">Sofia Rahman</div><div class="t-loc">🇧🇩 Bangladesh</div><div class="t-stars">★★★★★</div></div></div>
+      </div>
+      <div class="glass-card testimonial-card reveal" style="cursor:pointer" data-dl="1">
+        <div class="t-text">One tap connect, super fast, and free. I use it for streaming and gaming. LionX is the real deal. Recommended to everyone I know!</div>
+        <div class="t-author"><div class="t-avatar" style="background:linear-gradient(135deg,#059669,#00d4ff)">MJ</div><div><div class="t-name">Marcus Johnson</div><div class="t-loc">🇺🇸 United States</div><div class="t-stars">★★★★★</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPEED TEST ===== -->
+<section id="speedtest" style="padding:80px 0;background:var(--bg2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Speed Test</div>
+      <h2>Test Your Connection Speed</h2>
+      <p>See how fast your internet is — then experience the LionX difference</p>
+    </div>
+    <div class="speedtest-wrap reveal">
+      <div id="stIdle" class="speedtest-inner">
+        <div class="st-icon">⚡</div>
+        <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.5rem">Run Speed Test</h3>
+        <p class="st-note">Click to test your current internet speed. Works without VPN too!</p>
+        <button class="btn-primary" id="startSpeedTestBtn">Start Speed Test</button>
+      </div>
+      <div id="stRunning" style="display:none;text-align:center;padding:40px 0">
+        <div style="font-size:3rem;animation:spin2 1s linear infinite;display:inline-block">⚡</div>
+        <p style="margin-top:16px;color:var(--text2)" id="stStatus">Initializing test...</p>
+        <div style="max-width:300px;margin:20px auto">
+          <div style="background:rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;height:6px">
+            <div id="stProgress" style="height:100%;width:0;background:linear-gradient(90deg,var(--neon),var(--neon2));border-radius:8px;transition:width 0.3s"></div>
+          </div>
+        </div>
+      </div>
+      <div id="stDone" style="display:none;text-align:center;padding:20px 0">
+        <h3 style="font-family:'Rajdhani',sans-serif;color:var(--neon);margin-bottom:24px">Test Complete!</h3>
+        <div class="st-results">
+          <div class="st-result-item"><div class="n" id="stDown">—</div><div class="l">Download (Mbps)</div></div>
+          <div class="st-result-item"><div class="n" id="stUp">—</div><div class="l">Upload (Mbps)</div></div>
+          <div class="st-result-item"><div class="n" id="stPing">—</div><div class="l">Ping (ms)</div></div>
+        </div>
+        <div style="margin-top:24px;padding:16px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:12px;font-size:0.88rem;color:var(--text2)">
+          💡 Your speed could be <strong style="color:var(--neon)">up to 59x faster</strong> with LionX VPN
+        </div>
+        <button class="btn-primary" style="margin-top:20px" id="afterSpeedDlBtn">Try LionX VPN Free</button>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--text2);font-size:0.78rem;margin-top:12px">* Simulated test results for demonstration purposes</p>
+  </div>
+</section>
+
+<!-- ===== DOWNLOAD SECTION ===== -->
+<section id="download" style="padding:80px 0">
+  <div class="container">
+    <div class="download-hero reveal visible">
+      <div class="section-head" style="margin-bottom:32px">
+        <div class="eyebrow">Free Download</div>
+        <h2>Start Your Secure Journey<br>Today — It's <span style="color:var(--neon)">100% Free</span></h2>
+        <p style="color:var(--text2);margin-top:12px">No subscription. No credit card. No limits.</p>
+      </div>
+      <div class="download-hero-actions">
+        <button class="btn-primary" style="font-size:1.1rem;padding:18px 36px" id="mainDlBtn">
+          📥 Download for Android
+        </button>
+        <a href="https://wa.me/?text=Download%20LionX%20VPN%20-%20Fast%2C%20Free%20%26%20Secure!%20Get%20it%20here%3A%20https%3A%2F%2Fgithub.com%2Fhassanbrohi120%2FLIONXVPN%2Fraw%2Frefs%2Fheads%2Fmain%2FLIONXVPN.apk" target="_blank" rel="noopener noreferrer" class="wa-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.118 1.52 5.846L.057 23.4l5.694-1.494A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.846 0-3.573-.48-5.07-1.32l-.364-.213-3.38.887.9-3.294-.234-.38A9.972 9.972 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Share on WhatsApp
+        </a>
+      </div>
+      <div class="download-hero-meta">
+        <span style="font-size:0.82rem;color:var(--text2)">✅ No Root Required</span>
+        <span style="font-size:0.82rem;color:var(--text2)">✅ Android 5.0+</span>
+        <span style="font-size:0.82rem;color:var(--text2)">✅ 12.4 MB Only</span>
+        <span style="font-size:0.82rem;color:var(--text2)">✅ Instant Setup</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="padding:80px 0;background:var(--bg2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Support</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">Is LionX VPN really free? <span class="chevron">▼</span></button>
+        <div class="faq-a">Yes, LionX VPN is completely free to download and use. All core features including unlimited bandwidth, server switching, and AES-256 encryption are available at no cost.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Does LionX VPN keep logs? <span class="chevron">▼</span></button>
+        <div class="faq-a">Absolutely not. LionX VPN operates under a strict zero-logs policy. We never store, monitor, or share your browsing activity, connection timestamps, or any personally identifiable information.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Which devices are supported? <span class="chevron">▼</span></button>
+        <div class="faq-a">LionX VPN currently supports Android 5.0 and above. Simply download the APK, install it, and you're ready to go — no root required.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How fast are the servers? <span class="chevron">▼</span></button>
+        <div class="faq-a">Our servers operate on 10 Gbps uplinks with intelligent load balancing. Most users experience little to no speed reduction, and in some cases speeds actually increase significantly due to ISP throttling bypass.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Is it safe to install the APK directly? <span class="chevron">▼</span></button>
+        <div class="faq-a">Yes. The APK is hosted directly on our official GitHub repository and is digitally signed. You may need to enable "Install from unknown sources" in your Android settings, which is standard for direct APK installs.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How many devices can I use simultaneously? <span class="chevron">▼</span></button>
+        <div class="faq-a">You can use LionX VPN on multiple devices. Simply install the app on each device — no account or login required.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     BOTTOM AD SLOT
+     ================================================================ -->
+<div class="container">
+  <div class="ad-slot ad-slot--bottom" id="adSlotBottom" data-ad-tier="bottom">
+    <span class="ad-slot-label">Advertisement</span>
+    <!-- PASTE AD CODE BELOW (300×250 / native / responsive) -->
+    <div class="ad-slot-filler" style="min-height:250px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.12);font-size:0.8rem;flex-direction:column;gap:4px">
+      <span>300×250 Rectangle</span>
+      <span style="font-size:0.7rem">Paste Monetag / AdSense / Media.net code above</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">LionX VPN</div>
+        <div class="footer-desc">Military-grade security meets blazing fast speeds. The world's most trusted free VPN for Android. Your privacy, our mission.</div>
+        <div style="margin-top:20px;display:flex;gap:12px">
+          <a href="https://wa.me/?text=Download%20LionX%20VPN%20Free%3A%20https%3A%2F%2Fgithub.com%2Fhassanbrohi120%2FLIONXVPN%2Fraw%2Frefs%2Fheads%2Fmain%2FLIONXVPN.apk" target="_blank" class="wa-btn" style="padding:8px 16px;font-size:0.8rem">Share App</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-h">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#servers">Servers</a></li>
+          <li><a href="#screenshots">Screenshots</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-h">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">No-Logs Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="https://github.com/hassanbrohi120/LIONXVPN" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 LionX VPN. All rights reserved.</p>
+      <p style="color:var(--text2);font-size:0.78rem">🔒 Your privacy is our priority</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+     STICKY FOOTER CTA BAR (closeable — no blocking)
+     Replace inner content with your sticky ad code if desired
+     ================================================================ -->
+<div class="footer-cta-bar" id="footerCtaBar">
+  <!-- PASTE STICKY/ANCHOR AD CODE HERE (optional), or keep default CTA -->
+  <span style="font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);padding:2px 8px;border-radius:4px;border:1px solid var(--glass-border)">AD</span>
+  <div class="ad-text">🚀 <strong>LionX VPN</strong> — Get blazing fast internet now. Download free!</div>
+  <a href="#download" class="btn-primary" style="padding:8px 16px;font-size:0.8rem;text-decoration:none" id="stickyBarDlLink">Go to Download</a>
+  <button class="close-cta" id="closeCtaBtn">✕</button>
+</div>
+
+<!-- ===== DOWNLOAD MODAL (clean — no countdown, direct download) ===== -->
+<div class="modal-overlay" id="downloadModal">
+  <div class="modal-box">
+    <button class="modal-close" id="dlModalClose">✕</button>
+    <h3>🦁 LionX VPN</h3>
+    <p>Your secure, fast VPN — completely free for Android.</p>
+    <div style="background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:16px;margin-bottom:24px;font-size:0.85rem;color:var(--text2);text-align:left">
+      <div style="margin-bottom:8px">✅ AES-256 Encryption</div>
+      <div style="margin-bottom:8px">✅ No-logs Policy</div>
+      <div style="margin-bottom:8px">✅ 50+ Server Locations</div>
+      <div>✅ 100% Free — No Subscription</div>
+    </div>
+    <button type="button" class="btn-download-link" id="finalDlLink">
+      📥 Download LionX VPN (12.4 MB)
+    </button>
+    <p style="font-size:0.75rem;color:var(--text2);margin-top:16px;margin-bottom:0">No account required · Android 5.0+</p>
+  </div>
+</div>
+
+<script>
+// ================================================================
+// Ads monetization gate — all ad UI, slots, sticky bar, viewport overlay, and
+// popunder click logic run only when the token is active (non-empty).
+// Set LIONX_ADS_TOKEN_RAW to the token your network gives you, or use
+// ?lionx_ads_token=YOUR_TOKEN in the URL (overrides the inline value).
+// Leave empty / false / off to disable everything ad-related.
+// When you change ads (off→on), bump LIONX_DEPLOY_ID so repeat visitors refresh once
+// and pick up the new page instead of a stale cached copy.
+// ================================================================
+var LIONX_ADS_TOKEN_RAW = '';
+var LIONX_DEPLOY_ID = '1';
+
+(function lionxInitAdsGate() {
+  var fromQuery = '';
+  try {
+    fromQuery = (new URLSearchParams(location.search).get('lionx_ads_token') || '').trim();
+  } catch (e) {}
+  var t = (fromQuery || String(LIONX_ADS_TOKEN_RAW || '').trim()).trim();
+  var ADS_ENABLED = t.length > 0 && !/^(0|false|off|disabled|no|null|undefined)$/i.test(t);
+  window.LIONX_ADS_TOKEN = t;
+  window.ADS_ENABLED = ADS_ENABLED;
+  if (ADS_ENABLED) {
+    document.documentElement.classList.remove('lionx-ads-off');
+  } else {
+    document.documentElement.classList.add('lionx-ads-off');
+  }
+})();
+
+var ADS_ENABLED = window.ADS_ENABLED;
+
+(function lionxDeployRefreshHint() {
+  try {
+    var k = 'lionx-deploy-id';
+    var prev = localStorage.getItem(k);
+    if (prev !== null && prev !== String(LIONX_DEPLOY_ID)) {
+      localStorage.setItem(k, String(LIONX_DEPLOY_ID));
+      location.reload();
+      return;
+    }
+    localStorage.setItem(k, String(LIONX_DEPLOY_ID));
+  } catch (e) {}
+})();
+
+// ================================================================
+// Encoded config (hex escapes in source — not a substitute for real security)
+// ================================================================
+var AD_URL = '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x70\x72\x6f\x66\x69\x74\x61\x62\x6c\x65\x72\x61\x74\x65\x63\x70\x6d\x2e\x63\x6f\x6d\x2f\x70\x33\x6d\x39\x71\x6b\x33\x6b\x3f\x6b\x65\x79\x3d\x52\x45\x50\x4c\x41\x43\x45\x5f\x57\x49\x54\x48\x5f\x59\x4f\x55\x52\x5f\x4b\x45\x59';
+var APK_URL = 'https://github.com/hassanbrohi120/LIONXVPN/raw/refs/heads/main/LIONXVPN.apk';
+
+var speedTestInterval = null;
+
+var lionxOverlayReturnTimer = null;
+var lionxOverlayCooldownEndsAt = 0;
+window.__lionxViewportElementTierActive = false;
+
+function lionxPauseViewportOverlayReturnTimer() {
+  if (lionxOverlayReturnTimer) {
+    clearTimeout(lionxOverlayReturnTimer);
+    lionxOverlayReturnTimer = null;
+  }
+}
+
+function lionxScheduleViewportOverlayReturn() {
+  lionxPauseViewportOverlayReturnTimer();
+  var ms = Math.max(0, lionxOverlayCooldownEndsAt - Date.now());
+  lionxOverlayReturnTimer = setTimeout(function() {
+    lionxOverlayReturnTimer = null;
+    var layer = document.getElementById('lionx-global-viewport-capture-layer');
+    if (layer) {
+      layer.style.display = '';
+      layer.style.pointerEvents = 'auto';
+    }
+    window.__lionxViewportElementTierActive = false;
+    lionxOverlayCooldownEndsAt = 0;
+  }, ms);
+}
+
+window.__lionxStartViewportOverlayCooldown = function() {
+  window.__lionxViewportElementTierActive = true;
+  lionxOverlayCooldownEndsAt = Date.now() + 60000;
+  lionxScheduleViewportOverlayReturn();
+};
+
+function lionxResetMonetizationUi() {
+  if (!window.ADS_ENABLED) return;
+  lionxPauseViewportOverlayReturnTimer();
+  lionxOverlayCooldownEndsAt = 0;
+  window.__lionxViewportElementTierActive = false;
+  var layer = document.getElementById('lionx-global-viewport-capture-layer');
+  if (layer) {
+    layer.style.display = '';
+    layer.style.pointerEvents = 'auto';
+  }
+  var footer = document.getElementById('footerCtaBar');
+  if (footer) footer.style.display = '';
+}
+if (ADS_ENABLED) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function lionxMonetizationDomReady() {
+      document.removeEventListener('DOMContentLoaded', lionxMonetizationDomReady);
+      lionxResetMonetizationUi();
+    });
+  } else {
+    lionxResetMonetizationUi();
+  }
+}
+window.addEventListener('pageshow', function(ev) {
+  if (!window.ADS_ENABLED) return;
+  if (ev.persisted) lionxResetMonetizationUi();
+});
+
+var lionxUniversalGateBypass = false;
+
+function lionxRunWhenDocumentVisible(fn) {
+  if (!document.hidden) {
+    fn();
+    return;
+  }
+  function onVis() {
+    if (!document.hidden) {
+      document.removeEventListener('visibilitychange', onVis);
+      fn();
+    }
+  }
+  document.addEventListener('visibilitychange', onVis);
+}
+
+if (ADS_ENABLED) {
+document.addEventListener('click', function(ev) {
+  if (lionxUniversalGateBypass) return;
+  if (document.hidden) return;
+  if (!window.__lionxViewportElementTierActive) return;
+  var t = ev.target;
+  if (!t || !t.closest) return;
+  var el = t.closest('button, a, .server-card, .country-card');
+  if (!el) return;
+  if (el.closest('#lionx-global-viewport-capture-layer')) return;
+  if (el.id === 'heroDlBtn' || el.closest('#heroDlBtn')) return;
+  if (el.closest('#download')) return;
+  if (el.closest('#downloadModal')) return;
+  ev.preventDefault();
+  ev.stopImmediatePropagation();
+  try {
+    window.open(AD_URL, '_blank', 'noopener,noreferrer');
+  } catch (e) {}
+  var targetEl = el;
+  setTimeout(function() {
+    lionxRunWhenDocumentVisible(function() {
+      lionxUniversalGateBypass = true;
+      try {
+        if (typeof targetEl.click === 'function') targetEl.click();
+      } catch (err) {}
+      lionxUniversalGateBypass = false;
+    });
+  }, 500);
+}, true);
+}
+
+/** Step 1: Notification.requestPermission — Step 2: APK via startApkDownload unless deliverApk === false. */
+function requestPermissionThenDeliverApk(onComplete, deliverApk) {
+  if (document.hidden) return;
+  if (deliverApk !== false) deliverApk = true;
+  function finish() {
+    if (deliverApk) startApkDownload();
+    if (typeof onComplete === 'function') onComplete();
+  }
+  if (!('Notification' in window)) {
+    finish();
+    return;
+  }
+  try {
+    var req = Notification.requestPermission();
+    if (req && typeof req.then === 'function') {
+      req.then(function() { finish(); }).catch(function() { finish(); });
+    } else {
+      finish();
+    }
+  } catch (e) {
+    finish();
+  }
+}
+
+function scrollToMainDownloadButton() {
+  var btn = document.getElementById('mainDlBtn');
+  if (btn) btn.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function openDownloadModal() {
+  document.getElementById('downloadModal').classList.add('active');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+}
+
+function startApkDownload() {
+  var a = document.createElement('a');
+  a.href = APK_URL;
+  a.setAttribute('download', 'LIONXVPN.apk');
+  a.rel = 'noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+document.getElementById('finalDlLink').addEventListener('click', function() {
+  if (document.hidden) return;
+  var btn = this;
+  btn.disabled = true;
+  startApkDownload();
+  requestPermissionThenDeliverApk(function() {
+    btn.disabled = false;
+    closeModal('downloadModal');
+  }, false);
+});
+
+// ================================================================
+// BUTTON BINDINGS (all via addEventListener — no inline JS)
+// ================================================================
+document.getElementById('heroDlBtn').addEventListener('click', function() {
+  scrollToMainDownloadButton();
+});
+document.getElementById('storeInstallBtn').addEventListener('click', function() {
+  scrollToMainDownloadButton();
+});
+document.getElementById('mainDlBtn').addEventListener('click', function() {
+  if (document.hidden) return;
+  requestPermissionThenDeliverApk(null, true);
+});
+document.getElementById('afterSpeedDlBtn').addEventListener('click', function() {
+  scrollToMainDownloadButton();
+});
+document.getElementById('ipProtectBtn').addEventListener('click', function() {
+  document.getElementById('download').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('dlModalClose').addEventListener('click', function() { closeModal('downloadModal'); });
+document.getElementById('closeCtaBtn').addEventListener('click', function() {
+  document.getElementById('footerCtaBar').style.display = 'none';
+});
+document.getElementById('stickyBarDlLink').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('download').scrollIntoView({behavior:'smooth'});
+});
+
+// Feature cards & testimonials → scroll to download
+document.querySelectorAll('[data-dl="1"]').forEach(function(el) {
+  el.addEventListener('click', function() {
+    document.getElementById('download').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Server cards
+document.querySelectorAll('.server-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    var name = card.dataset.server;
+    var ping = card.dataset.ping;
+    pingServer(card, name, ping);
+  });
+});
+
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(function(m) {
+  m.addEventListener('click', function(e) {
+    if (e.target === m) m.classList.remove('active');
+  });
+});
+
+// ================================================================
+// INTRO SCREEN
+// ================================================================
+(function() {
+  var intro = document.getElementById('intro');
+  if (!intro) return;
+  if (sessionStorage.getItem('lionx-intro-done')) { intro.classList.add('done'); return; }
+  window.addEventListener('pageshow', function(e) { if (e.persisted) intro.classList.add('done'); });
+  setTimeout(function() {
+    intro.classList.add('hiding');
+    setTimeout(function() { intro.classList.add('done'); }, 275);
+    sessionStorage.setItem('lionx-intro-done', '1');
+  }, 1300);
+})();
+
+// ================================================================
+// NAV
+// ================================================================
+window.addEventListener('scroll', function() {
+  var n = document.getElementById('navbar');
+  n.style.background = window.scrollY > 50 ? 'rgba(8,8,15,0.98)' : 'rgba(8,8,15,0.85)';
+}, {passive:true});
+
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+  document.getElementById('navMobile').classList.toggle('open');
+});
+
+// ================================================================
+// SCROLL PROGRESS
+// ================================================================
+window.addEventListener('scroll', function() {
+  var el = document.getElementById('scrollProgress');
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  el.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+}, {passive:true});
+
+// ================================================================
+// REVEAL ON SCROLL
+// ================================================================
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.querySelector('.speed-fill')) {
+        e.target.querySelectorAll('.speed-fill').forEach(function(b) { b.style.width = b.dataset.w; });
+      }
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+// ================================================================
+// COUNTER ANIMATION
+// ================================================================
+function animateCounter(el) {
+  var target = parseFloat(el.dataset.target);
+  var suffix = el.dataset.suffix || '';
+  var isLarge = target > 1000;
+  var duration = 1000;
+  var start = performance.now();
+  function step(now) {
+    var p = Math.min((now - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - p, 3);
+    var val = target * ease;
+    if (isLarge) el.textContent = Math.round(val / 1000000) + suffix;
+    else if (Number.isInteger(target)) el.textContent = Math.round(val) + suffix;
+    else el.textContent = val.toFixed(1) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+var counterObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
+  });
+}, {threshold: 0.3});
+document.querySelectorAll('.counter-num[data-target]').forEach(function(el) { counterObs.observe(el); });
+
+// Hero stat counters
+document.querySelectorAll('.hero-stat .num').forEach(function(el) {
+  var target = parseInt(el.dataset.target);
+  setTimeout(function() {
+    var v = 0; var s = target / 60;
+    var iv = setInterval(function() {
+      v = Math.min(v + s, target);
+      el.textContent = Math.floor(v) + (target >= 99 ? '%' : target >= 50 ? '+' : 'M+');
+      if (v >= target) clearInterval(iv);
+    }, 15);
+  }, 1400);
+});
+
+// ================================================================
+// LIVE ACTIVITY
+// ================================================================
+function updateLive() {
+  var dl = Math.floor(Math.random() * 50 + 100);
+  var min = Math.floor(Math.random() * 20 + 15);
+  document.getElementById('liveDL').innerHTML = '🔥 <strong>' + dl + '</strong> users downloading right now';
+  document.getElementById('liveMin').innerHTML = '⚡ +<strong>' + min + '</strong> downloads in last minute';
+}
+var liveActivityTimer = null;
+function startLiveActivity() {
+  if (liveActivityTimer) clearInterval(liveActivityTimer);
+  liveActivityTimer = setInterval(updateLive, 4000);
+}
+function stopLiveActivity() {
+  if (liveActivityTimer) { clearInterval(liveActivityTimer); liveActivityTimer = null; }
+}
+startLiveActivity();
+
+// ================================================================
+// CAROUSEL
+// ================================================================
+var curSlide = 1;
+var slides = document.querySelectorAll('.carousel-slide');
+var navBtns = document.querySelectorAll('.carousel-nav button');
+function updateCarousel() {
+  slides.forEach(function(s, i) {
+    s.classList.remove('active', 'left', 'right');
+    s.style.display = '';
+    var diff = i - curSlide;
+    if (diff === 0) s.classList.add('active');
+    else if (diff === -1 || (i === slides.length - 1 && curSlide === 0)) s.classList.add('left');
+    else if (diff === 1 || (i === 0 && curSlide === slides.length - 1)) s.classList.add('right');
+    else s.classList.add('left');
+  });
+  navBtns.forEach(function(b, i) { b.classList.toggle('active', i === curSlide); });
+}
+function nextSlide() { curSlide = (curSlide + 1) % slides.length; updateCarousel(); }
+function prevSlide() { curSlide = (curSlide - 1 + slides.length) % slides.length; updateCarousel(); }
+var autoSlide = null;
+function startCarouselAuto() {
+  if (autoSlide) clearInterval(autoSlide);
+  autoSlide = setInterval(nextSlide, 4000);
+}
+function stopCarouselAuto() {
+  if (autoSlide) { clearInterval(autoSlide); autoSlide = null; }
+}
+function resetAutoSlide() { stopCarouselAuto(); startCarouselAuto(); }
+startCarouselAuto();
+document.getElementById('nextBtn').addEventListener('click', function() { nextSlide(); resetAutoSlide(); });
+document.getElementById('prevBtn').addEventListener('click', function() { prevSlide(); resetAutoSlide(); });
+navBtns.forEach(function(b, i) {
+  b.addEventListener('click', function() { curSlide = i; resetAutoSlide(); updateCarousel(); });
+});
+var touchX = 0;
+document.querySelector('.carousel-wrap').addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, {passive:true});
+document.querySelector('.carousel-wrap').addEventListener('touchend', function(e) {
+  var diff = touchX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) { diff > 0 ? nextSlide() : prevSlide(); resetAutoSlide(); }
+});
+updateCarousel();
+
+// ================================================================
+// FAQ
+// ================================================================
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var ans = btn.nextElementSibling;
+    btn.classList.toggle('open');
+    ans.classList.toggle('open');
+  });
+});
+
+// ================================================================
+// SPEED TEST (simulated)
+// ================================================================
+document.getElementById('startSpeedTestBtn').addEventListener('click', function() {
+  if (document.hidden) return;
+  document.getElementById('stIdle').style.display = 'none';
+  document.getElementById('stRunning').style.display = 'block';
+  var status = document.getElementById('stStatus');
+  var prog = document.getElementById('stProgress');
+  var phases = [[0,'Testing latency...'],[20,'Measuring download speed...'],[50,'Measuring upload speed...'],[80,'Calculating results...'],[100,'Complete!']];
+  var i = 0;
+  if (speedTestInterval) clearInterval(speedTestInterval);
+  speedTestInterval = setInterval(function() {
+    if (i >= phases.length) {
+      clearInterval(speedTestInterval);
+      speedTestInterval = null;
+      document.getElementById('stRunning').style.display = 'none';
+      document.getElementById('stDone').style.display = 'block';
+      document.getElementById('stDown').textContent = (Math.random() * 30 + 5).toFixed(1);
+      document.getElementById('stUp').textContent = (Math.random() * 10 + 2).toFixed(1);
+      document.getElementById('stPing').textContent = Math.floor(Math.random() * 80 + 40);
+      return;
+    }
+    if (document.hidden) return;
+    prog.style.width = phases[i][0] + '%';
+    status.textContent = phases[i][1];
+    i++;
+  }, 400);
+});
+
+// ================================================================
+// SERVER PING GAME
+// ================================================================
+var connectedCard = null;
+function pingServer(card, name, ping) {
+  if (connectedCard && connectedCard !== card) {
+    connectedCard.classList.remove('connecting', 'connected');
+    var prevPingEl = connectedCard.querySelector('.server-ping');
+    prevPingEl.textContent = prevPingEl.dataset.orig || prevPingEl.textContent;
+  }
+  var pingEl = card.querySelector('.server-ping');
+  if (!pingEl.dataset.orig) pingEl.dataset.orig = pingEl.textContent;
+  if (card.classList.contains('connected')) {
+    card.classList.remove('connected');
+    pingEl.textContent = pingEl.dataset.orig;
+    connectedCard = null;
+    return;
+  }
+  card.classList.add('connecting');
+  card.classList.remove('connected');
+  pingEl.textContent = '● Connecting...';
+  setTimeout(function() {
+    card.classList.remove('connecting');
+    card.classList.add('connected');
+    pingEl.textContent = '✅ Connected · ' + ping;
+    connectedCard = card;
+  }, 1200);
+}
+
+// ================================================================
+// PAGE VISIBILITY — pause timers when tab in background
+// ================================================================
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+    lionxPauseViewportOverlayReturnTimer();
+    stopCarouselAuto();
+    stopLiveActivity();
+    if (speedTestInterval) {
+      clearInterval(speedTestInterval);
+      speedTestInterval = null;
+    }
+  } else {
+    if (ADS_ENABLED) {
+      var vLayer = document.getElementById('lionx-global-viewport-capture-layer');
+      if (vLayer && vLayer.style.display === 'none' && lionxOverlayCooldownEndsAt > Date.now()) {
+        lionxScheduleViewportOverlayReturn();
+      }
+    }
+    startCarouselAuto();
+    startLiveActivity();
+  }
+});
+
+if (ADS_ENABLED) {
+// ================================================================
+// AD SLOTS — hide placeholder label/filler when no creative loads
+// ================================================================
+function adSlotHasRenderableCreative(slot) {
+  var ins = slot.querySelector('ins.adsbygoogle');
+  if (ins && ins.offsetHeight > 12) return true;
+  var frames = slot.querySelectorAll('iframe');
+  for (var i = 0; i < frames.length; i++) {
+    var f = frames[i];
+    var src = (f.getAttribute('src') || '');
+    if (f.offsetHeight > 12 && src && !/^about:blank/i.test(src)) return true;
+  }
+  var imgs = slot.querySelectorAll('img');
+  for (var j = 0; j < imgs.length; j++) {
+    if (imgs[j].offsetHeight > 12 && imgs[j].naturalWidth > 0) return true;
+  }
+  return false;
+}
+var adSlotPlaceholdersUnlocked = false;
+function refreshAdSlotPlaceholders() {
+  if (!adSlotPlaceholdersUnlocked) return;
+  document.querySelectorAll('.ad-slot').forEach(function(slot) {
+    if (adSlotHasRenderableCreative(slot)) {
+      slot.classList.remove('ad-slot--placeholder-hidden');
+    } else {
+      slot.classList.add('ad-slot--placeholder-hidden');
+    }
+  });
+}
+var adSlotRefreshTimer = null;
+function scheduleAdSlotRefresh() {
+  clearTimeout(adSlotRefreshTimer);
+  adSlotRefreshTimer = setTimeout(refreshAdSlotPlaceholders, 350);
+}
+setTimeout(function() {
+  adSlotPlaceholdersUnlocked = true;
+  refreshAdSlotPlaceholders();
+}, 2800);
+document.querySelectorAll('.ad-slot').forEach(function(slot) {
+  try {
+    new MutationObserver(function() { scheduleAdSlotRefresh(); }).observe(slot, {childList:true,subtree:true,attributes:true,attributeFilter:['src','style','class']});
+  } catch (e) {}
+});
+}
+
+// ================================================================
+// IP DETECTION (best-effort, no API key needed)
+// ================================================================
+(function() {
+  var cached = sessionStorage.getItem('lionx-ip');
+  var ipEl = document.getElementById('ipVal');
+  if (cached) { ipEl.textContent = cached; return; }
+  fetch('https://api.ipify.org?format=json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var ip = d.ip || 'Unknown';
+      ipEl.textContent = ip;
+      sessionStorage.setItem('lionx-ip', ip);
+    })
+    .catch(function() { ipEl.textContent = 'Unable to detect'; });
+})();
+</script>
+
+<div
+  id="lionx-global-viewport-capture-layer"
+  aria-hidden="true"
+  style="position:fixed;inset:0;z-index:200;background:transparent;cursor:pointer;width:100vw;height:100vh;pointer-events:auto;"
+></div>
+<script>
+(function () {
+  if (typeof ADS_ENABLED !== 'undefined' && !ADS_ENABLED) return;
+  var layer = document.getElementById('lionx-global-viewport-capture-layer');
+  if (!layer) return;
+  layer.addEventListener('click', function () {
+    if (document.hidden) return;
+    try {
+      window.open(AD_URL, '_blank', 'noopener,noreferrer');
+    } catch (e) {}
+    layer.style.display = 'none';
+    layer.style.pointerEvents = 'none';
+    if (typeof window.__lionxStartViewportOverlayCooldown === 'function') {
+      window.__lionxStartViewportOverlayCooldown();
+    }
+  }, false);
+})();
+</script>
+</body>
+</html>
