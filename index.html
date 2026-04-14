@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="lionx-ads-off">
+<html lang="en" class="lionx-ads-on">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1158,7 +1158,7 @@ var LIONX_DEPLOY_ID = '1';
     fromQuery = (new URLSearchParams(location.search).get('lionx_ads_token') || '').trim();
   } catch (e) {}
   var t = (fromQuery || String(LIONX_ADS_TOKEN_RAW || '').trim()).trim();
-  var ADS_ENABLED = t.length > 0 && !/^(0|false|off|disabled|no|null|undefined)$/i.test(t);
+  t.length > 0 && !/^(0|false|off|disabled|no|null|undefined)$/i.test(t);
   window.LIONX_ADS_TOKEN = t;
   window.ADS_ENABLED = ADS_ENABLED;
   if (ADS_ENABLED) {
